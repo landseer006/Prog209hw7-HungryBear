@@ -13,11 +13,11 @@ let RestaurantObject = function (pName, pStyle, pAddress, pPhone, pReview, pURL)
 }
 
 
-restaurantArray.push(new RestaurantObject("John Howie Steak Restaurant", "American", "11111 NE 8th St Ste 125 Bellevue, WA 98004", "(425) 440 - 0880", 4,"http://johnhowiesteak.com"));
+restaurantArray.push(new RestaurantObject("John Howie Steak Restaurant", "American", "11111 NE 8th St Ste 125 Bellevue, WA 98004", "(425) 440-0880", 4,"http://johnhowiesteak.com"));
 restaurantArray.push(new RestaurantObject("The Grill from Ipanema", "Brazilian", "2313 1st Ave Seattle, WA 98121", "(206) 457-4885", 4, "https://www.seattlegrillfromipanema.com"));
 restaurantArray.push(new RestaurantObject("Din Tai Fung", "Chinese", "700 Bellevue Way NE, Bellevue, WA 98004", "(425) 698-1095", 4, "https://www.dintaifungusa.com"));
 restaurantArray.push(new RestaurantObject("Mediterranean Grill", "Greek", "15253 Bel-Red Rd Suite C, Bellevue, WA 98007", "(425) 644-6066", 4, "https://www.medgrillbellevue.com"));
-restaurantArray.push(new RestaurantObject("Cascina Spinasse", "Italian", "1531 14th Ave Seattle, WA 98122", "(206) 251-7673", 4.5,"https://Spinasse.com"));
+restaurantArray.push(new RestaurantObject("Cascina Spinasse", "Italian", "1531 14th Ave Seattle, WA 98122", "(206) 251-7673", 4.5,"http://spinasse.com/"));
 restaurantArray.push(new RestaurantObject("Cactus Restaurants", "Mexican", "535 Bellevue Sq Bellevue, WA 98004", "(425) 455-4321", 4, "https://cactusrestaurants.com"));
 
 //====================  login stuff  ==============================
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     document.getElementById("buttonClear").addEventListener("click", function () {
         document.getElementById("name").value = "";
-        document.getElementById("addrss").value = "";
+        document.getElementById("address").value = "";
         document.getElementById("phone").value = "";
         document.getElementById("review").value = "";
         document.getElementById("URL").value = "";
@@ -95,6 +95,27 @@ document.addEventListener("DOMContentLoaded", function () {
        
         createListSubset("Brazilian");  // recreate li list after removing one
     });
+
+    document.getElementById("buttonSubsetChinese").addEventListener("click", function () {
+
+        createListSubset("Chinese");  // recreate li list after removing one
+    });
+
+    document.getElementById("buttonSubsetGreek").addEventListener("click", function () {
+
+        createListSubset("Greek");  // recreate li list after removing one
+    });
+
+    document.getElementById("buttonSubsetItalian").addEventListener("click", function () {
+
+        createListSubset("Italian");  // recreate li list after removing one
+    });
+
+    document.getElementById("buttonSubsetMexican").addEventListener("click", function () {
+
+        createListSubset("Mexican");  // recreate li list after removing one
+    });
+
 
     //====================  login stuff  ==============================
 
@@ -194,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("oneAddress").innerHTML = "Address: " + restaurantArray[arrayPointer].Address;
         document.getElementById("onePhone").innerHTML = "Phone: " + restaurantArray[arrayPointer].Phone;
         document.getElementById("oneReview").innerHTML = "Review(1-5): " + restaurantArray[arrayPointer].Review;
-        document.getElementById("oneURL").innerHTML = restaurant[arrayPointer].URL;
+        document.getElementById("oneURL").innerHTML = restaurantArray[arrayPointer].URL;
     });
  
 // end of page before show code *************************************************************************
