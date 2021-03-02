@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     document.getElementById("buttonAdd").addEventListener("click", function () {
         restaurantArray.push(new RestaurantObject(document.getElementById("name").value, selectedStyle, document.getElementById("address").value,
-            document.getElementById("phone").value, document.getElementById("review").value));
+            document.getElementById("phone").value, document.getElementById("review").value, document.getElementById("URL").value));
         document.location.href = "index.html#ListAll";
         // also add the URL value
     });
@@ -275,7 +275,6 @@ function createList() {
         document.location.href = "index.html#details";
         });
     });
-
 };
 
 function deleteRestaurant(which) {
