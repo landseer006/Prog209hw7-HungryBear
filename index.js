@@ -1,10 +1,10 @@
 // start by creating data so we don't have to type it in each time
 let restaurantArray = [];
 
-// define a constructor to create movie objects
-let RestaurantObject = function (pName, pStyle, pAddress, pPhone, pReview, pURL) {
+// define a constructor to create restaurant objects
+let RestaurantObject = function (pTitle, pStyle, pAddress, pPhone, pReview, pURL) {
     this.ID = Math.random().toString(16).slice(5)  // tiny chance could get duplicates!
-    this.Name = pName;
+    this.Title = pTitle;
     this.Style = pStyle;//restaurant styles in option
     this.Address = pAddress;  
     this.Phone = pPhone;
@@ -44,14 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // add button events ************************************************************************
     
     document.getElementById("buttonAdd").addEventListener("click", function () {
-        restaurantArray.push(new RestaurantObject(document.getElementById("name").value, selectedStyle, document.getElementById("address").value,
+        restaurantArray.push(new RestaurantObject(document.getElementById("title").value, selectedStyle, document.getElementById("address").value,
             document.getElementById("phone").value, document.getElementById("review").value, document.getElementById("URL").value));
         document.location.href = "index.html#ListAll";
         // also add the URL value
     });
     
     document.getElementById("buttonClear").addEventListener("click", function () {
-        document.getElementById("name").value = "";
+        document.getElementById("title").value = "";
         document.getElementById("address").value = "";
         document.getElementById("phone").value = "";
         document.getElementById("review").value = "";
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $(document).on("pagebeforeshow", "#details", function (event) {   // have to use jQuery 
         let localID = document.getElementById("IDparmHere").innerHTML;
         let arrayPointer = GetArrayPointer(localID);
-        document.getElementById("oneName").innerHTML = "The restaurant name is: " + restaurantArray[arrayPointer].Name;
+        document.getElementById("oneName").innerHTML = "The restaurant name is: " + restaurantArray[arrayPointer].Title;
         document.getElementById("oneStyle").innerHTML = "Restaurant style: " + restaurantArray[arrayPointer].Style;
         document.getElementById("oneAddress").innerHTML = "Address: " + restaurantArray[arrayPointer].Address;
         document.getElementById("onePhone").innerHTML = "Phone: " + restaurantArray[arrayPointer].Phone;
@@ -256,7 +256,7 @@ function createList() {
         // use the html5 "data-parm" to encode the ID of this particular data object
         // that we are building an li from
         li.setAttribute("data-parm", element.ID);
-        li.innerHTML = element.ID + ":  " + element.Name + "  " + element.Style;
+        li.innerHTML = element.ID + ":  " + element.Title + "  " +element.Style;
         ul.appendChild(li);
     });
     divRestaurantList.appendChild(ul)
@@ -312,7 +312,7 @@ function createListSubset(whichType) {
             // use the html5 "data-parm" to encode the ID of this particular data object
             // that we are building an li from
             li.setAttribute("data-parm", element.ID);
-            li.innerHTML = element.ID + ":  " + element.Name + "  " + element.Style;
+            li.innerHTML = element.ID + ":  " + element.Title + "  " + element.Style;
             ul.appendChild(li);
         }
     });
