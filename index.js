@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(document).on("pagebeforeshow", "#ListSome", function (event) {   // have to use jQuery 
         // clear prior data
-        var divRestaurantList = document.getElementById("divRestaurantListSubset");
+        let divRestaurantList = document.getElementById("divRestaurantListSubset");
         while (divRestaurantList.firstChild) {    // remove any old data so don't get duplicates
             divRestaurantList.removeChild(divRestaurantList.firstChild);
         };
@@ -242,15 +242,15 @@ function passwordCheck(user, pw) {
 
 function createList() {
     // clear prior data
-    var divRestaurantList = document.getElementById("divRestaurantList");
+    let divRestaurantList = document.getElementById("divRestaurantList");
     while (divRestaurantList.firstChild) {    // remove any old data so don't get duplicates
         divRestaurantList.removeChild(divRestaurantList.firstChild);
     };
 
-    var ul = document.createElement('ul');
+    let ul = document.createElement('ul');
 
     restaurantArray.forEach(function (element,) {   // use handy array forEach method
-        var li = document.createElement('li');
+        let li = document.createElement('li');
         // adding a class name to each one as a way of creating a collection
         li.classList.add('oneRestaurant'); 
         // use the html5 "data-parm" to encode the ID of this particular data object
@@ -264,11 +264,11 @@ function createList() {
     // now we have the HTML done to display out list, 
     // next we make them active buttons
     // set up an event for each new li item, 
-    var liArray = document.getElementsByClassName("oneRestaurant");
+    let liArray = document.getElementsByClassName("oneRestaurant");
     Array.from(liArray).forEach(function (element) {
         element.addEventListener('click', function () {
         // get that data-parm we added for THIS particular li as we loop thru them
-        var parm = this.getAttribute("data-parm");  // passing in the record.Id
+        let parm = this.getAttribute("data-parm");  // passing in the record.Id
         // get our hidden <p> and write THIS ID value there
         document.getElementById("IDparmHere").innerHTML = parm;
         // now jump to our page that will use that one item
@@ -295,18 +295,18 @@ function GetArrayPointer(localID) {
 
 function createListSubset(whichType) {
     // clear prior data
-    var divRestaurantList = document.getElementById("divRestaurantListSubset");
+    let divRestaurantList = document.getElementById("divRestaurantListSubset");
     while (divRestaurantList.firstChild) {    // remove any old data so don't get duplicates
         divRestaurantList.removeChild(divRestaurantList.firstChild);
     };
 
-    var ul = document.createElement('ul');
+    let ul = document.createElement('ul');
 
     restaurantArray.forEach(function (element,) {
         
         if (element.Style === whichType) {
             // use handy array forEach method
-            var li = document.createElement('li');
+            let li = document.createElement('li');
             // adding a class name to each one as a way of creating a collection
             li.classList.add('oneRestaurant');
             // use the html5 "data-parm" to encode the ID of this particular data object
@@ -321,11 +321,11 @@ function createListSubset(whichType) {
     // now we have the HTML done to display out list, 
     // next we make them active buttons
     // set up an event for each new li item, 
-    var liArray = document.getElementsByClassName("oneRestaurant");
+    let liArray = document.getElementsByClassName("oneRestaurant");
     Array.from(liArray).forEach(function (element) {
         element.addEventListener('click', function () {
             // get that data-parm we added for THIS particular li as we loop thru them
-            var parm = this.getAttribute("data-parm");  // passing in the record.Id
+            let parm = this.getAttribute("data-parm");  // passing in the record.Id
             // get our hidden <p> and write THIS ID value there
             document.getElementById("IDparmHere").innerHTML = parm;
             // now jump to our page that will use that one item
@@ -342,7 +342,7 @@ function createListSubset(whichType) {
 * @param {String} property Key of the object to sort.
 */
 function dynamicSort(property) {
-    var sortOrder = 1;
+    let sortOrder = 1;
 
     if (property[0] === "-") {
         sortOrder = -1;
