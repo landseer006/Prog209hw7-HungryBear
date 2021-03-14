@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 2 sort button event methods
     document.getElementById("buttonSortName").addEventListener("click", function () {
-        restaurantArray.sort(dynamicSort("Name"));
+        restaurantArray.sort(dynamicSort("Title"));
         createList();
         document.location.href = "index.html#ListAll";
     });
